@@ -1,1 +1,8 @@
-include ':app'
+include ':app', ':draw1', ':draw2', ':draw3', ':draw4', ':draw5', ':draw6', ':draw7'
+project(':draw1').projectDir = new File('exam/PracticeDraw1-master/app')
+project(':draw2').projectDir = new File('exam/PracticeDraw2-master/app')
+project(':draw3').projectDir = new File('exam/PracticeDraw3-master/app')
+project(':draw4').projectDir = new File('exam/PracticeDraw4-master/app')
+project(':draw5').projectDir = new File('exam/PracticeDraw5-master/app')
+project(':draw6').projectDir = new File('exam/PracticeDraw6-master/app')
+project(':draw7').projectDir = new File('exam/PracticeDraw7-master/app')
