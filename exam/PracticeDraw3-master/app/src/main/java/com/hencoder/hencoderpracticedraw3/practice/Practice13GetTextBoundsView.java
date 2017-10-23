@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -19,6 +20,8 @@ public class Practice13GetTextBoundsView extends View {
     String text6 = "â";
     int top = 200;
     int bottom = 400;
+
+    private Rect bounds;
 
     public Practice13GetTextBoundsView(Context context) {
         super(context);
@@ -37,6 +40,8 @@ public class Practice13GetTextBoundsView extends View {
         paint1.setStrokeWidth(20);
         paint1.setColor(Color.parseColor("#E91E63"));
         paint2.setTextSize(160);
+
+        bounds = new Rect();
     }
 
     @Override
@@ -50,11 +55,47 @@ public class Practice13GetTextBoundsView extends View {
         // 这种居中算法的优点是，可以让文字精准地居中，分毫不差
 
         int middle = (top + bottom) / 2;
-        canvas.drawText(text1, 100, middle, paint2);
-        canvas.drawText(text2, 200, middle, paint2);
-        canvas.drawText(text3, 300, middle, paint2);
-        canvas.drawText(text4, 400, middle, paint2);
-        canvas.drawText(text5, 500, middle, paint2);
-        canvas.drawText(text6, 600, middle, paint2);
+        
+        paint2.getTextBounds(text1, 0, text1.length(), bounds);
+        canvas.drawText(text1, 100, middle + bounds.height() / 2, paint2);
+        
+        paint2.getTextBounds(text2, 0, text2.length(), bounds);
+        canvas.drawText(text2, 200, middle + bounds.height() / 2, paint2);
+        
+        paint2.getTextBounds(text3, 0, text3.length(), bounds);
+        canvas.drawText(text3, 300, middle + bounds.height() / 2, paint2);
+        
+        paint2.getTextBounds(text4, 0, text4.length(), bounds);
+        canvas.drawText(text4, 400, middle + bounds.height() / 2, paint2);
+        
+        paint2.getTextBounds(text5, 0, text5.length(), bounds);
+        canvas.drawText(text5, 500, middle + bounds.height() / 2, paint2);
+        
+        paint2.getTextBounds(text6, 0, text6.length(), bounds);
+        canvas.drawText(text6, 600, middle + bounds.height() / 2, paint2);
+
+        // 上面使用height/2获取到的高度不是很准确，下面换-（top+bottom）
+
+        canvas.translate(0, 300);
+
+        canvas.drawRect(50, top, getWidth() - 50, bottom, paint1);
+
+        paint2.getTextBounds(text1, 0, text1.length(), bounds);
+        canvas.drawText(text1, 100, middle - (bounds.top + bounds.bottom) / 2, paint2);
+
+        paint2.getTextBounds(text2, 0, text2.length(), bounds);
+        canvas.drawText(text2, 200, middle - (bounds.top + bounds.bottom) / 2, paint2);
+
+        paint2.getTextBounds(text3, 0, text3.length(), bounds);
+        canvas.drawText(text3, 300, middle - (bounds.top + bounds.bottom) / 2, paint2);
+
+        paint2.getTextBounds(text4, 0, text4.length(), bounds);
+        canvas.drawText(text4, 400, middle - (bounds.top + bounds.bottom) / 2, paint2);
+
+        paint2.getTextBounds(text5, 0, text5.length(), bounds);
+        canvas.drawText(text5, 500, middle - (bounds.top + bounds.bottom) / 2, paint2);
+
+        paint2.getTextBounds(text6, 0, text6.length(), bounds);
+        canvas.drawText(text6, 600, middle - (bounds.top + bounds.bottom) / 2, paint2);
     }
 }

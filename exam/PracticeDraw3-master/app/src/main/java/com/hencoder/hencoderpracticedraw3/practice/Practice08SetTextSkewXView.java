@@ -34,5 +34,13 @@ public class Practice08SetTextSkewXView extends View {
         super.onDraw(canvas);
 
         canvas.drawText(text, 50, 100, paint);
+
+        canvas.translate(0,200);
+        paint.setTextSkewX(0.5f);
+        canvas.drawText(text + "  0.5", 50, 100, paint);
+
+        canvas.translate(0,200);
+        paint.setTextSkewX(-0.5f);
+        canvas.drawText(text + "  -0.5", 50, 100, paint);
     }
 }

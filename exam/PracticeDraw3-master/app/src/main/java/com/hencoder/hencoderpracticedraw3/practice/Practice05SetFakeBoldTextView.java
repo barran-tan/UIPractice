@@ -32,7 +32,11 @@ public class Practice05SetFakeBoldTextView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        
+        canvas.drawText(text, 50, 100, paint);
+        
+        canvas.translate(0, 200);
+        paint.setFakeBoldText(true);
         canvas.drawText(text, 50, 100, paint);
     }
 }

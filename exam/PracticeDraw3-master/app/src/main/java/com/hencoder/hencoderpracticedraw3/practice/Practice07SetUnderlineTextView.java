@@ -34,5 +34,9 @@ public class Practice07SetUnderlineTextView extends View {
         super.onDraw(canvas);
 
         canvas.drawText(text, 50, 100, paint);
+
+        canvas.translate(0,200);
+        paint.setUnderlineText(true);
+        canvas.drawText(text, 50, 100, paint);
     }
 }

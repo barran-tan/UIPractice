@@ -15,6 +15,8 @@ public class Practice14GetFontMetricsView extends View {
     int top = 200;
     int bottom = 400;
 
+    private Paint.FontMetrics metrics;
+
     public Practice14GetFontMetricsView(Context context) {
         super(context);
     }
@@ -32,6 +34,9 @@ public class Practice14GetFontMetricsView extends View {
         paint1.setStrokeWidth(20);
         paint1.setColor(Color.parseColor("#E91E63"));
         paint2.setTextSize(160);
+
+        metrics = new Paint.FontMetrics();
+        paint2.getFontMetrics(metrics);
     }
 
     @Override
@@ -45,6 +50,20 @@ public class Practice14GetFontMetricsView extends View {
         // 这种居中算法的优点是，可以让不同的文字的 baseline 对齐
 
         int middle = (top + bottom) / 2;
+        
+        middle = (int) (middle - (metrics.descent + metrics.ascent) / 2);
+        
+        canvas.drawText(texts[0], 100, middle, paint2);
+        canvas.drawText(texts[1], 200, middle, paint2);
+        canvas.drawText(texts[2], 300, middle, paint2);
+        canvas.drawText(texts[3], 400, middle, paint2);
+        canvas.drawText(texts[4], 500, middle, paint2);
+        canvas.drawText(texts[5], 600, middle, paint2);
+        
+        canvas.translate(0, 300);
+        canvas.drawRect(50, top, getWidth() - 50, bottom, paint1);
+        middle = (int) ((top + bottom) / 2 + (metrics.descent - metrics.ascent) / 2);
+        
         canvas.drawText(texts[0], 100, middle, paint2);
         canvas.drawText(texts[1], 200, middle, paint2);
         canvas.drawText(texts[2], 300, middle, paint2);
