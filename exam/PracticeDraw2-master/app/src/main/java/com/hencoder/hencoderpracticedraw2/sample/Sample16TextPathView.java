@@ -27,6 +27,8 @@ public class Sample16TextPathView extends View {
     }
 
     {
+        setLayerType(LAYER_TYPE_SOFTWARE, null);// 需要关闭硬件加速
+
         paint.setTextSize(120);
         paint.getTextPath(text, 0, text.length(), 50, 400, textPath);
 

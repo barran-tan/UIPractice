@@ -1,11 +1,18 @@
 package com.hencoder.hencoderpracticedraw2.practice;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.ComposeShader;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.hencoder.hencoderpracticedraw2.R;
 
 public class Practice05ComposeShaderView extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -16,10 +23,12 @@ public class Practice05ComposeShaderView extends View {
 
     public Practice05ComposeShaderView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public Practice05ComposeShaderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
     }
 
     {
@@ -28,6 +37,19 @@ public class Practice05ComposeShaderView extends View {
         // 用 Paint.setShader(shader) 设置一个 ComposeShader
         // Shader 1: BitmapShader 图片：R.drawable.batman
         // Shader 2: BitmapShader 图片：R.drawable.batman_logo
+    }
+
+    private void init() {
+        BitmapShader bitmapShader = new BitmapShader(
+                BitmapFactory.decodeResource(getResources(), R.drawable.batman),
+                Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        BitmapShader logoShader = new BitmapShader(
+                BitmapFactory.decodeResource(getResources(), R.drawable.batman_logo),
+                Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        // 注意：shader1是dst，shader2是src
+        ComposeShader composeShader = new ComposeShader(bitmapShader, logoShader,
+                PorterDuff.Mode.DST_IN);
+        paint.setShader(composeShader);
     }
 
     @Override
