@@ -26,6 +26,8 @@ public class Practice05MultiProperties extends ConstraintLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    private int count;
+    
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -39,6 +41,20 @@ public class Practice05MultiProperties extends ConstraintLayout {
             @Override
             public void onClick(View v) {
                 // TODO 在这里处理点击事件，同时对多个属性做动画
+
+                switch (count % 2) {
+                    case 0:
+                        imageView.animate().scaleX(1).alpha(1).scaleY(1).rotation(720)
+                                .translationX(500);
+                        break;
+                    
+                    case 1:
+                        imageView.animate().scaleX(0).alpha(0).scaleY(0).rotation(0)
+                                .translationX(0);
+                        break;
+                }
+
+                count ++;
             }
         });
     }

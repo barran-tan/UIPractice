@@ -22,6 +22,9 @@ public class Practice01Translation extends RelativeLayout {
     Button animateBt;
     ImageView imageView;
 
+    private int translationCount;
+    private int translationState;
+
     public Practice01Translation(Context context) {
         super(context);
     }
@@ -32,6 +35,10 @@ public class Practice01Translation extends RelativeLayout {
 
     public Practice01Translation(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    {
+        translationCount = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? 6 : 4;
     }
 
     @Override
@@ -46,9 +53,42 @@ public class Practice01Translation extends RelativeLayout {
         }
 
         animateBt.setOnClickListener(new OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(final View v) {
                 // TODO 在这里处理点击事件，通过 View.animate().translationX/Y/Z() 来让 View 平移
+
+                switch (translationState){
+                    case 0:
+                        imageView.animate().translationX(500);
+                        break;
+
+                    case 1:
+                        imageView.animate().translationX(0);
+                        break;
+
+                    case 2:
+                        imageView.animate().translationY(100);
+                        break;
+
+                    case 3:
+                        imageView.animate().translationY(0);
+                        break;
+
+                    case 4:
+                        imageView.animate().translationZ(50);
+                        break;
+
+                    case 5:
+                        imageView.animate().translationZ(0);
+                        break;
+                }
+                
+                translationState++;
+                if (translationState >= translationCount) {
+                    translationState = 0;
+                }
+
             }
         });
     }
