@@ -37,8 +37,18 @@ public class Practice04ScaleView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        
+        canvas.save();
+        // 重载方法可以设置缩放的中心点x，y
+        canvas.scale(1.2f, 1.2f, point1.x + bitmap.getHeight() / 2,
+                point1.y + bitmap.getHeight() / 2);
         canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
+        canvas.restore();
+        
+        canvas.save();
+        canvas.scale(0.5f, 2f, point2.x + bitmap.getHeight() / 2,
+                point2.y + bitmap.getHeight() / 2);
         canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
+        canvas.restore();
     }
 }

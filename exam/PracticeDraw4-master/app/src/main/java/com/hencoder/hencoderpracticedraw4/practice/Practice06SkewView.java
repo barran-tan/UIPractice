@@ -38,7 +38,16 @@ public class Practice06SkewView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        canvas.save();
+        // 注意：参数分别是在x，y轴上倾斜的角度的tan值
+        // 再形象一点，sx表示在x轴上的坐标偏移，向右为正；sy是
+        canvas.skew(0, 0.5f);
         canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
+        canvas.restore();
+        
+        canvas.save();
+        canvas.skew(-0.5f, 0);
         canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
+        canvas.restore();
     }
 }
