@@ -311,14 +311,15 @@ public class UpView extends View {
         canvas.translate(margin, 0);
 
         // test lines
-        mTextPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawPath(path, mTextPaint);
-        mTextPaint.setStyle(Paint.Style.FILL);
+//        mTextPaint.setStyle(Paint.Style.STROKE);
+//        canvas.drawPath(path, mTextPaint);
+//        mTextPaint.setStyle(Paint.Style.FILL);
 
         float textHeight = mTextPaint.descent() - mTextPaint.ascent();
-        canvas.drawLine(0, 0, mMinWidth, 0, mTextPaint);
-        canvas.drawLine(0, textHeight, mMinWidth, textHeight, mTextPaint);
-        canvas.drawLine(0, textHeight * 2, mMinWidth, textHeight * 2, mTextPaint);
+        // test lines
+//        canvas.drawLine(0, 0, mMinWidth, 0, mTextPaint);
+//        canvas.drawLine(0, textHeight, mMinWidth, textHeight, mTextPaint);
+//        canvas.drawLine(0, textHeight * 2, mMinWidth, textHeight * 2, mTextPaint);
 
         // draw image & circle
         int imageY = (int) ((mMinHeight - upImageNormal.getHeight()) / 2);
