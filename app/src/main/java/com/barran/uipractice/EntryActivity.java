@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.barran.uipractice.imitate.ImitateShowActivity;
+
 /**
  * 整合所有测试项目的入口
  *
@@ -57,6 +59,11 @@ public class EntryActivity extends AppCompatActivity {
                         intent.setClass(EntryActivity.this,
                                 com.hencoder.hencoderpracticedraw7.MainActivity.class);
                         break;
+
+                    case R.id.entry_btn_imitate:
+                        intent.setClass(EntryActivity.this,
+                                ImitateShowActivity.class);
+                        break;
                 }
                 
                 startActivity(intent);
@@ -69,5 +76,6 @@ public class EntryActivity extends AppCompatActivity {
         findViewById(R.id.entry_btn_draw5).setOnClickListener(listener);
         findViewById(R.id.entry_btn_draw6).setOnClickListener(listener);
         findViewById(R.id.entry_btn_draw7).setOnClickListener(listener);
+        findViewById(R.id.entry_btn_imitate).setOnClickListener(listener);
     }
 }

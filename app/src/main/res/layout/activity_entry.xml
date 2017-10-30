@@ -53,4 +53,11 @@
         android:layout_marginTop="10dp"
         android:text="draw7" />
 
+    <Button
+        android:id="@+id/entry_btn_imitate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="imitate" />
+
 </LinearLayout>
