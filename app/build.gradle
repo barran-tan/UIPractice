@@ -35,4 +35,5 @@ dependencies {
     compile project(':draw5')
     compile project(':draw6')
     compile project(':draw7')
+    compile project(':layout1')
 }

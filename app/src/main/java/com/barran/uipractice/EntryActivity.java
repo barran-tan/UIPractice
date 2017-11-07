@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.barran.uipractice.imitate.ImitateShowActivity;
+import com.hencoder.hencoderpracticelayout1.MainActivity;
 
 /**
  * 整合所有测试项目的入口
@@ -29,7 +30,7 @@ public class EntryActivity extends AppCompatActivity {
                         intent.setClass(EntryActivity.this,
                                 com.hencoder.hencoderpracticedraw1.MainActivity.class);
                         break;
-
+                    
                     case R.id.entry_btn_draw2:
                         intent.setClass(EntryActivity.this,
                                 com.hencoder.hencoderpracticedraw2.MainActivity.class);
@@ -59,10 +60,13 @@ public class EntryActivity extends AppCompatActivity {
                         intent.setClass(EntryActivity.this,
                                 com.hencoder.hencoderpracticedraw7.MainActivity.class);
                         break;
-
+                    
                     case R.id.entry_btn_imitate:
-                        intent.setClass(EntryActivity.this,
-                                ImitateShowActivity.class);
+                        intent.setClass(EntryActivity.this, ImitateShowActivity.class);
+                        break;
+                    
+                    case R.id.entry_btn_measure:
+                        intent.setClass(EntryActivity.this, MainActivity.class);
                         break;
                 }
                 
@@ -76,6 +80,7 @@ public class EntryActivity extends AppCompatActivity {
         findViewById(R.id.entry_btn_draw5).setOnClickListener(listener);
         findViewById(R.id.entry_btn_draw6).setOnClickListener(listener);
         findViewById(R.id.entry_btn_draw7).setOnClickListener(listener);
+        findViewById(R.id.entry_btn_measure).setOnClickListener(listener);
         findViewById(R.id.entry_btn_imitate).setOnClickListener(listener);
     }
 }
